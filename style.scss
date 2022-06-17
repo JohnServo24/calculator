@@ -42,6 +42,10 @@ body {
         align-items: flex-end;
         flex-direction: column;
 
+        .bottom {
+            height: 3rem;
+        }
+
         .top {
             font-size: 1.5rem;
         }

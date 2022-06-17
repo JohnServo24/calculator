@@ -6,18 +6,17 @@ const divide = (a, b) => a / b;
 
 // Function to operate on the math problems
 const operate = (a, b, op) => {
-    const result = add(a, b) ? op === "+" :
-                subtract(a, b) ? op === "-" :
-                multiply(a, b) ? op === "*" :
-                divide(a, b) ? op === "/" :
+    a = parseInt(a);
+    b = parseInt(b);
+    const result = op === "add" ?  add(a, b):
+                op === "subtr" ?  subtract(a, b):
+                op === "mult" ?  multiply(a, b):
+                op === "divide" ? divide(a, b):
                 "OPERATOR ERROR";
 
+    console.log(add(a,b));
     return result;
 }
-
-const clearResults = result => {
-    result.removeChild(result.firstChild);
-};
 
 const buttons = document.getElementById("buttons");
 const pad = buttons.querySelectorAll("button");
@@ -35,7 +34,10 @@ pad.forEach(item => {
             op = item.id;
             displayValue = bottomResult.textContent;
             topResult.textContent = `${displayValue} ${item.textContent}`;
-            clearResults(bottomResult);
+            bottomResult.textContent = "";
+        } else if(item.id == "equals") {
+            bottomResult.textContent = operate(displayValue, bottomResult.textContent, op);
+            topResult.textContent = "";
         }
     });
 });

@@ -10,7 +10,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
-  background-color: #D6D5A8;
+  background-color: #2b2f58;
 }
 
 .container {
@@ -129,5 +129,9 @@ body {
 .container .buttons .lower button:hover {
   -webkit-filter: brightness(85%);
           filter: brightness(85%);
+}
+
+.container .buttons .lower .operator {
+  background-color: #D6D5A8;
 }
 /*# sourceMappingURL=style.css.map */

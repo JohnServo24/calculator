@@ -2,7 +2,8 @@ $primary-color: #1B2430;
 $secondary-color: #51557E;
 $delete-color: #816797;
 $clear-color: #D10000;
-$background-color: #D6D5A8;
+$operator-color: #D6D5A8;
+$background-color: #2b2f58;
 
 body {
     margin: 0;
@@ -87,6 +88,10 @@ body {
             }
             button:hover {
                 filter: brightness(85%);
+            }
+
+            .operator {
+                background-color: $operator-color;
             }
         }
     }

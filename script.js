@@ -6,8 +6,8 @@ const divide = (a, b) => a / b;
 
 // Function to operate on the math problems
 const operate = (a, b, op) => {
-    a = parseInt(a);
-    b = parseInt(b);
+    a = parseFloat(a);
+    b = parseFloat(b);
     const result = op === "add" ?  add(a, b):
                 op === "subtr" ?  subtract(a, b):
                 op === "mult" ?  multiply(a, b):
@@ -16,38 +16,46 @@ const operate = (a, b, op) => {
     return result;
 }
 
+// Selects the pad
 const buttons = document.getElementById("buttons");
 const pad = buttons.querySelectorAll("button");
 
+// Selects the results pane
 const topResult = document.getElementById("top");
 const bottomResult = document.getElementById("bottom");
 
-let op = "";
-let displayValue = "";
-let flag = 0;
+let op = ""; // Stores the operators
+let displayValue = ""; // Stores the display values
+let flag = 0; // Stores the flag for clearing the screen after operations
 
 pad.forEach(item => {
     item.addEventListener("click", () => {
-        if(item.id >= "0" && item.id <= "9") {
+        // Checks if the button tapped is a number
+        if(item.id >= "0" && item.id <= "9" || item.id == "dot") {
             if (flag == 1) bottomResult.textContent = "";
             flag = 0;
-            bottomResult.textContent += item.id;
+            bottomResult.textContent += item.textContent;
+        // Checks if the button tapped is an operator
         } else if(item.id == "add" || item.id == "subtr" || item.id == "mult" || item.id == "divide") {
             if(!bottomResult.textContent) return;
             else if(displayValue) bottomResult.textContent = operate(displayValue, bottomResult.textContent, op);
-
             displayValue = bottomResult.textContent;
             op = item.id;
             topResult.textContent = `${bottomResult.textContent} ${item.textContent}`;
             flag = 1;
+        // Checks if the button tapped is equals
         } else if(item.id == "equals") {
             bottomResult.textContent = operate(displayValue, bottomResult.textContent, op);
             topResult.textContent = "";
             displayValue = "";
+        // Checks if the button tapped is clear
         } else if(item.id == "clear") {
             bottomResult.textContent = "";
             topResult.textContent = "";
             displayValue = "";
+        // Checks if the button tapped is delete
+        } else if(item.id == "delete") {
+            bottomResult.textContent = bottomResult.textContent.slice(0, bottomResult.textContent.length - 1);
         }
     });
 });

@@ -2,6 +2,7 @@ $primary-color: #1B2430;
 $secondary-color: #51557E;
 $delete-color: #816797;
 $clear-color: #D10000;
+$background-color: #D6D5A8;
 
 body {
     margin: 0;
@@ -9,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: $background-color;
 }
 
 .container {
@@ -31,13 +33,18 @@ body {
 
     .result {
         width: 500px;
-        height: 200px;
+        height: 100px;
         color: white;
         font-size: 3rem;
 
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
+        flex-direction: column;
+
+        .top {
+            font-size: 1.5rem;
+        }
     }
     
     .buttons {

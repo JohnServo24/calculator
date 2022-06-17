@@ -45,7 +45,19 @@ pad.forEach(item => {
             flag = 1;
         // Checks if the button tapped is equals
         } else if(item.id == "equals") {
-            bottomResult.textContent = operate(displayValue, bottomResult.textContent, op);
+            if(displayValue == "" || bottomResult.textContent == "") {
+                bottomResult.textContent = "Syntax Error";
+                flag = 1;
+                return;
+            }
+            const value = operate(displayValue, bottomResult.textContent, op);
+
+            if(value == "Infinity") {
+                bottomResult.textContent = "lmao";
+                flag = 1;
+            }
+            else bottomResult.textContent = value;
+            
             topResult.textContent = "";
             displayValue = "";
         // Checks if the button tapped is clear

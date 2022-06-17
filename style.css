@@ -1,6 +1,19 @@
+body {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
 .container {
-  width: 400px;
-  border: 1px solid black;
+  width: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,12 +27,34 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0.2%;
+  padding: 0.4%;
+  background-color: #1B2430;
+  border-radius: 10px;
+  font-family: arial;
+}
+
+.container button {
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .container .result {
-  width: 400px;
-  height: 100px;
+  width: 500px;
+  height: 200px;
+  color: white;
+  font-size: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .container .buttons {
@@ -43,22 +78,42 @@
   display: -ms-flexbox;
   display: flex;
   gap: 2px;
+  padding-bottom: 2px;
 }
 
 .container .buttons .upper button {
-  width: 200px;
-  height: 50px;
+  width: 250px;
+  height: 60px;
+}
+
+.container .buttons .upper button:hover {
+  -webkit-filter: brightness(85%);
+          filter: brightness(85%);
+}
+
+.container .buttons .upper .clear {
+  background-color: #D10000;
+}
+
+.container .buttons .upper .delete {
+  background-color: #816797;
 }
 
 .container .buttons .lower {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 99px 99px 99px 99px;
-      grid-template-columns: 99px 99px 99px 99px;
+  -ms-grid-columns: 124px 124px 124px 124px;
+      grid-template-columns: 124px 124px 124px 124px;
   gap: 2px;
 }
 
 .container .buttons .lower button {
-  height: 50px;
+  height: 60px;
+  background-color: #51557E;
+}
+
+.container .buttons .lower button:hover {
+  -webkit-filter: brightness(85%);
+          filter: brightness(85%);
 }
 /*# sourceMappingURL=style.css.map */

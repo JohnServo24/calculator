@@ -1,14 +1,43 @@
+$primary-color: #1B2430;
+$secondary-color: #51557E;
+$delete-color: #816797;
+$clear-color: #D10000;
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .container {
-    width: 400px;
-    border: 1px solid black;
+    width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.2%;
+    padding: 0.4%;
+    background-color: $primary-color;
+    border-radius: 10px;
+    font-family: arial;
+
+    button {
+        border: 0;
+        border-radius: 5px;
+        font-size: 1.3rem;
+        transition: 0.2s;
+    }
+
     .result {
-        width: 400px;
-        height: 100px;
+        width: 500px;
+        height: 200px;
+        color: white;
+        font-size: 3rem;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
     }
     
     .buttons {
@@ -19,18 +48,32 @@
         .upper {
             display: flex;
             gap: 2px;
+            padding-bottom: 2px;
             button {
-                width: 200px;
-                height: 50px;
+                width: 250px;
+                height: 60px;
+            }
+            button:hover {
+                filter: brightness(85%);
+            }
+            .clear {
+                background-color: $clear-color;
+            }
+            .delete {
+                background-color: $delete-color;
             }
         }
         .lower {
             display: grid;
-            grid-template-columns: 99px 99px 99px 99px;
+            grid-template-columns: 124px 124px 124px 124px;
             gap: 2px;
 
             button {
-                height: 50px;
+                height: 60px;
+                background-color: $secondary-color;
+            }
+            button:hover {
+                filter: brightness(85%);
             }
         }
     }

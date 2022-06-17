@@ -45,7 +45,11 @@ pad.forEach(item => {
             flag = 1;
         // Checks if the button tapped is equals
         } else if(item.id == "equals") {
-            if(displayValue == "" || bottomResult.textContent == "") {
+            if(displayValue == "" && bottomResult.textContent == "") {
+                bottomResult.textContent = "Enter numbers pls";
+                flag = 1;
+                return;
+            } else if(displayValue == "") {
                 bottomResult.textContent = "Syntax Error";
                 flag = 1;
                 return;

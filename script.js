@@ -13,8 +13,6 @@ const operate = (a, b, op) => {
                 op === "mult" ?  multiply(a, b):
                 op === "divide" ? divide(a, b):
                 "OPERATOR ERROR";
-
-    console.log(add(a,b));
     return result;
 }
 
@@ -26,28 +24,42 @@ const bottomResult = document.getElementById("bottom");
 
 let op = "";
 let displayValue = "";
+let flag = 0;
+
 pad.forEach(item => {
     item.addEventListener("click", () => {
         if(item.id >= "0" && item.id <= "9") {
+            if (flag == 1) bottomResult.textContent = "";
+            flag = 0;
             bottomResult.textContent += item.id;
         } else if(item.id == "add" || item.id == "subtr" || item.id == "mult" || item.id == "divide") {
-            op = item.id;
+            if(!bottomResult.textContent) return;
+            else if(displayValue) bottomResult.textContent = operate(displayValue, bottomResult.textContent, op);
+
             displayValue = bottomResult.textContent;
-            topResult.textContent = `${displayValue} ${item.textContent}`;
-            bottomResult.textContent = "";
+            op = item.id;
+            topResult.textContent = `${bottomResult.textContent} ${item.textContent}`;
+            flag = 1;
         } else if(item.id == "equals") {
             bottomResult.textContent = operate(displayValue, bottomResult.textContent, op);
             topResult.textContent = "";
+            displayValue = "";
+        } else if(item.id == "clear") {
+            bottomResult.textContent = "";
+            topResult.textContent = "";
+            displayValue = "";
         }
     });
 });
 
 
 // Get inputs from user
-// If user inputs numbers, collect it and store it and output it
-// If user inputs operators 
-    // collect it
-    // output the prev. input on top with the operator
-    // Collect input again but store it in a different variable
-        // Clear the previous output after inputting the new number
-// When user inputs =, then show result
+// If user taps numbers use textContent to output it
+// If user taps operators 
+    // Store the textContent into a variable
+    // Display the current value + operator
+    // Ask user for numbers again
+// When user taps = then calculate textContent and the var of prev. text content
+    // Then output it
+// If user taps on a number, clear everything and start anew
+    // Else if user taps on an operator continue

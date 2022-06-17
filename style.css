@@ -84,6 +84,7 @@ body {
 .container .buttons .upper button {
   width: 250px;
   height: 60px;
+  font-weight: normal;
 }
 
 .container .buttons .upper button:hover {

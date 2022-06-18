@@ -4,6 +4,7 @@
     > When tapping on operators multiple times, it operates on the current number
         > If there is an active operator, it must not operate on the current number
         > It must change from the old operator to the operator tapped
+    > No keyboard support
 */
 
 
